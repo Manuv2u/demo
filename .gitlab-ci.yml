@@ -16,7 +16,8 @@ build-java-project:
     - mvn package
   artifacts:
     paths:
-      - ./target/*.jar 
+      - ./target/*.jar
+      - java -jar C:\Users\Dell\Downloads\md-pipeline-demo\md\target\md-0.0.1-SNAPSHOT.jar
 
 test-java-project:
   stage: test
