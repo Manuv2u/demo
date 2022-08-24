@@ -3,6 +3,7 @@ image: maven:3-jdk-11
 stages:
   - build
   - test
+  - deploy
 
 build-java-project:
   cache:
@@ -21,5 +22,11 @@ test-java-project:
   stage: test
   script:
     - mvn test
+
+deploy-java-project:
+  stage: deploy
+  script:
+    - java -jar target\md-0.0.1-SNAPSHOT.jar
+    - curl https://localhost:7070/    
   
 
