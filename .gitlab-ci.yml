@@ -1,0 +1,25 @@
+image: maven:3-jdk-11
+
+stages:
+  - build
+  - test
+
+build-java-project:
+  cache:
+    paths:
+      - .m2/repository/
+      - target/
+  
+  stage: build
+  script:
+    - mvn package
+  artifacts:
+    paths:
+      - ./target/*.jar 
+
+test-java-project:
+  stage: test
+  script:
+    - mvn test
+    - curl "http://localhost:7070"
+
