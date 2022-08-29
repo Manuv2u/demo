@@ -6,8 +6,7 @@ image: maven:3-jdk-11
 stages:
   - build
   - test
-  - build-image
-  - publish-image
+  
   
 
 build-java-project:
@@ -22,27 +21,11 @@ build-java-project:
   artifacts:
     paths:
       - ./target/*.jar
-      - java -jar C:\Users\Dell\Downloads\target\md-0.0.1-SNAPSHOT.jar
+      
 
 test-java-project:
   stage: test
   script:
     - mvn test
 
-
-build-image:
-  stage: build-image
-  script:
-    - echo "Building Docker Image..."
-    - docker build -t $CI_REGISTRY/mjovanc/blog-api:$CI_COMMIT_SHORT_SHA .
-    - docker build -t $CI_REGISTRY/mjovanc/blog-api:latest .
-
-publish-image:
-  stage: publish-image
-  script:
-    - echo "Publishing Docker Image..."
-    - docker login -u mjovanc -p $MJOVANC_CONTAINER_REGISTRY_TOKEN $CI_REGISTRY
-    - docker push $CI_REGISTRY/mjovanc/blog-api:$CI_COMMIT_SHORT_SHA
-    - docker push $CI_REGISTRY/mjovanc/blog-api:latest
-   
 
