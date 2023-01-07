@@ -6,8 +6,11 @@ image: maven:3-jdk-11
 stages:
   - build
   - test
-  
-  
+
+
+include:
+  - template: Code-Quality.gitlab-ci.yml
+
 
 build-java-project:
   cache:
@@ -21,11 +24,11 @@ build-java-project:
   artifacts:
     paths:
       - ./target/*.jar
-      
 
-test-java-project:
+code_quality:
   stage: test
-  script:
-    - mvn test
+  artifacts:
+    paths: [gl-code-quality-report.json]
+
 
 
