@@ -5,7 +5,7 @@ site:
   #start_page: sample::index.adoc
 content:
   sources:
-    - url: ${GIT_REPO_URL}
+    - url: .
       branches: feature/#95/manu
       start_path: docs
       edit_url: false
