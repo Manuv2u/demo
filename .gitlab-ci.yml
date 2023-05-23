@@ -1,6 +1,6 @@
 variables:
-  USER_NAME: $USER_NAME
-  USER_TOKEN: $USER_TOKEN
+  GIT_USER_NAME: $USER_NAME
+  GIT_USER_TOKEN: $USER_TOKEN
   GIT_REPO_URL: https://${USER_NAME}:${USER_TOKEN}@gitlab.com/merco_ecosystem/kb_playground.git
 
 stages:
