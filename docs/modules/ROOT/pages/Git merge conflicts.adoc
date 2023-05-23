@@ -1,0 +1,114 @@
+====
+*_GIT MERGE-CONFLICTS_*
+====
+image:https://d1h3p5fzmizjvp.cloudfront.net/wp-content/uploads/2018/01/26113342/Git-conflict.png[] +
+
+|===
+|Commands |Definition |Developer1 |Developer2
+
+|git checkout -b branch_name
+|created a feature branch
+|git checkout -b feature
+|git checkout -b bugfix
+
+
+|
+|changes in the file made trial.html
+|<html>
+       <body>
+         <h1>First heading given to the trial file</h1>
+         <h2>Second heading from feature branch</h2>
+       </body>
+ </html>
+| <html>
+        <body>
+         <h1>First heading given to the trial file</h1>
+         <h2>Second heading from bugfix updated</h2>
+       </body>
+  </html>
+
+|git add
+|Adds the modified file to staging area
+|git add feature
+|git add bugfix
+
+|git commit -m "message"
+|Commits modified file to branch specified
+|git commit -m "commit 2:new branch commited"
+|git commit -m "commit 3 :Fix some buggy code"
+
+|git log
+|displays all the commit messages
+|
+|
+
+|
+|
+|Auto-conflicts arises because the same line in same file, two different developers changed the content of same file
+|Developers can discuss and do the necessary single change to the file
+
+
+|git merge
+|merging the bugfix and feature branch
+|git checkout feature
+git merge bugfix
+git add trial.html
+git status
+git commit -m "commit 4:resolved conflict"
+|
+
+|git rebase
+|takes the commit message from master and adds to the current branch
+|git rebase master
+|
+
+
+|git merge feature
+|merges the branches (fast-forwarding)
+|
+|
+
+|git fetch --all
+|fetches all details from remote repository
+|
+|
+
+|git branch -r
+|gives all branches present in remote repository
+|
+|
+
+|git pull
+|pull files from remote to local repository
+|
+|
+
+|.gitignore file
+|files which we dont want to keep inside the repository
+|
+|
+
+|git cherry-pick
+|picks specific commit ID and apply it to the branch
+|
+|
+
+|git reset test1.txt
+|used to remove changes from staging area.
+|
+|
+
+|git reset head~1
+|going to remove the head point & remove unstaged changes
+|
+|
+
+|git revert
+|revert changes on specific commit
+|
+|
+
+|git squash
+|make series of changes on commits and consolidates to one.
+|
+|

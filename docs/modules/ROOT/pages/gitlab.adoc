@@ -1,0 +1,20 @@
+*_GITLAB INTRODUCTION_* +
+GitLab is a web-based Git repository that provides free open and private repositories, issue-following capabilities. +
+It is a complete DevOps platform that enables professionals to perform all the tasks in a project—from project planning and source code management to monitoring and security. +
+
+*_COMMANDS_*
+
+image:https://i.redd.it/nm1w0gnf2zh11.png[] +
+
+1. git --version - displaying the version of git.
+2. git clone - clones the remote repository to local.
+3. git init - initializes the empty repository.
+4. git config --global user.name "Saranya" - configuration of username
+5. git config --global user.email "saranya.t@kanilebettu.com" - configuration of email
+6. mkdir cool-web - creates a empty directory
+7. cd cool-web - to get inside the directory
+8. vim read.txt - create a file inside the directory with vi editor
+9. git status - tells the current status of git repo.
+10. git add. - add files to staging area(read.txt)
+11. git commit - commit staged changes
+12. git log - history of changes.

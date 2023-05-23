@@ -1,0 +1,36 @@
+// As a devops engineer, I want microservices for deploying it into the application and to make sure how it works.
+_MICROSERVICES_ +
+
+-> Microservices will break the applications into distinct services, which can be developed and deployed independently. +
+-> For this microservices the communication between the services will done through API gateway. With this we can develop easily, update seamless and manage each service without application failure. +
+-> Microservices architectures make applications easier to scale and faster to develop, enabling innovation and accelerating time-to-market for new features. +
+
+We need cloud platform, for building or deploying the microservices application.
+Eg: Containerization(Dockers)
+Hospital management application has divided into 4 services
+
+     * Patient registration
+
+
+      * Clinical patient
+
+
+      * Bed management
+
+
+      * Claim management +
+
+_Monolythic Vs Microservices:_ +
+
+image:https://hazelcast.com/wp-content/uploads/2021/12/diagram-MonolithicArchitecture.png[]
+
+-> With monolithic architectures, all processes are tightly coupled and run as a single service. +
+-> Monolithic architectures add risk for application availability because many dependent and tightly coupled processes increase the impact of a single process failure. +
+-> With a microservices architecture, an application is built as independent components that run each application process as a service. +
+-> Because they are independently run, each service can be updated, deployed, and scaled to meet demand for specific functions of an application. +
+
+
+
+
+
+

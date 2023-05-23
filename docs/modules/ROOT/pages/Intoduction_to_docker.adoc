@@ -1,0 +1,46 @@
+*_INTRODUCTION TO DOCKER:_* +
+====
+-> Docker is an open platform for developing, shipping, and running applications. +
+-> Docker enables you to separate your applications from your infrastructure so you can deliver software quickly. +
+-> Docker provides the ability to package and run an application in a loosely isolated environment called a container. +
+-> Containers are lightweight and contain everything needed to run the application, so you do not need to rely on what is currently installed on the host. +
+-> Docker provides tooling and a platform to manage the lifecycle of your containers: +
+* Develop application and its supporting components using containers. +
+* The container becomes the unit for distributing and testing your application. +
+* Deploy your application into your production environment, as a container or an orchestrated service. +
+====
+*_DOCKER ARCHITECTURE:_* +
+image:https://docs.docker.com/engine/images/architecture.svg[]
+
+*_TERMINOLOGIES USED:_* +
+1. _The Docker daemon (dockerd)_ listens for Docker API requests and manages Docker objects such as images, containers, networks, and volumes. +
+2. _The Docker client (docker)_ is the primary way that many Docker users interact with Docker. +
+3. _A Docker registry_ stores Docker images. Docker Hub is a public registry that anyone can use. +
+4. _An image_ is a read-only template with instructions for creating a Docker container. +
+5. _A container_ is a runnable instance of an image. +
+
+*_Dockerfile:_* +
+-> To build a image, create a Dockerfile with a simple syntax for defining the steps needed to create image and run it. +
+-> Each instruction in a Dockerfile creates a layer in the image. +
+-> When you change the Dockerfile and rebuild the image, only those layers which have changed are rebuilt. +
+-> This makes images so lightweight, small, and fast. +
+
+*_Example:_* +
+FROM openjdk:8-jdk-alpine +
+COPY $JAR_file app.jar +
+ENTRYPOINT ["java", "-jar", "/app.jar"] +
+
+*_COMMANDS:_*
+
+* docker build -t spring-boot-docker . (to create an image) +
+* docker run --name=sql -p 8085:8080 spring-boot-docker (run the image to produce container) +
+* docker exec -it sql /bin/bash (enters into the container) +
+* exit (exits from the container) +
+* docker images (list all images) +
+* docker ps -a (list all containers) +
+* docker tag spring-boot-docker dockerhub/spring-boot-docker (image tags with dockerhub)+
+* docker push dockerhub/spring-boot-docker (push img to dockerhub) +
+* docker pull dockerhub/spring-boot-docker (pulls img from dockerhub) +
+
+
+

@@ -1,0 +1,66 @@
+
+====
+*_Gitlab architecture_* +
+====
+The gitlab architecture includes two main parts +
+image:http://embeddedinventor.com/wp-content/uploads/2020/01/gitlab2-1024x635.jpg[] +
+Gitlab server +
+Gitlab runner. +
+
+* The gitlab server offers interface, creates and manages the repository needed for the project. +
+* TheGitlab runner is the tool for executing the commands defined in the job and stores the output as a artifacts. +
+
+_Why Gitlab?_ +
+* A tool for CI/CD pipelines. +
+* simple and scalable architecture. +
+* Pipeline as a code +
+* Issue tracking is possible +
+* market share is growing continuously. +
+
+_What is CI/ CD?_ +
+
+image:https://docs.gitlab.com/ee/ci/introduction/img/gitlab_workflow_example_11_9.png[]+
+====
+*CI [Continuous Integration]:* +
+It is an automation process for developers. +
+Successful CI means new code changes to an app are regularly built, tested, and merged to a shared repository. +
+It’s a solution to the problem of having too many branches of an app in development at once that might conflict with each other. +
+====
+====
+*CD [Continuous Delivery/Deployment]:* +
+Continuous delivery usually means a developer’s changes to an application are automatically bug tested and uploaded to a repository (like GitHub or a container registry), where they can then be deployed to a live production environment by the operations team. +
+Continuous deployment (the other possible "CD") can refer to automatically releasing a developer’s changes from the repository to production, where it is usable by customers. +
+====
+
+*_syntax:_* +
+
+*_.gitlab-ci.yml (filename)_*
+====
+image:https://www.fosstechnix.com/wp-content/uploads/2021/11/img-2.png[] +
+
+====
+*_Pipeline basic concepts_* +
+
+-> Pipelines are the top-level component of continuous integration, delivery, and deployment.
+
+-> Pipelines comprise:
+
+       * Jobs, which define what to do. For example, jobs that compile or test code.
+       * Stages, which define when to run the jobs. For example, stages that run tests after stages that compile the code.
+
+-> Jobs are executed by runners. Multiple jobs in the same stage are executed in parallel, if there are enough concurrent runners.
+
+-> If all jobs in a stage succeed, the pipeline moves on to the next stage.
+
+-> If any job in a stage fails, the next stage is not (usually) executed and the pipeline ends early.
+
+-> In general, pipelines are executed automatically and require no intervention once created. However, there are also times when you can manually interact with a pipeline.
+
+-> A typical pipeline might consist of four stages, executed in the following order:
+
+* A build stage, with a job called compile.
+* A test stage, with two jobs called test1 and test2.
+* A staging stage, with a job called deploy-to-stage.
+* A production stage, with a job called deploy-to-prod.
+
+
