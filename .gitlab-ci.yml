@@ -1,7 +1,13 @@
 variables:
-  GIT_USER_NAME: $USER_NAME
-  GIT_USER_TOKEN: $USER_TOKEN
-  GIT_REPO_URL: https://${USER_NAME}:${USER_TOKEN}@gitlab.com/merco_ecosystem/kb_playground.git
+  S3_ACCESS_KEY: $AWS_ACCESS_KEY_ID
+  S3_SECRET_KEY: $AWS_SECRET_ACCESS_KEY
+  S3_BUCKET_NAME: $AWS_S3
+
+before_script:
+  - apt-get update
+  - apt-get -y install awscli
+  - aws configure set aws_access_key_id $S3_ACCESS_KEY
+  - aws configure set aws_secret_access_key $S3_SECRET_KEY
 
 stages:
   - build
@@ -10,8 +16,15 @@ build:
   stage: build
   image: antora/antora:latest
   script:
-    - antora antora-playbook.yml --fetch
+    - antora --pull --fetch antora-playbook.yml --fetch
+    
   artifacts:
     paths:
       - ./public
+
+deploy_to_s3:
+  stage: build
+  image: amazon/aws-cli
+  script:
+    - aws s3 cp ./public s3://$S3_BUCKET_NAME/
 
