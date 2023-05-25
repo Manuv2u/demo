@@ -5,7 +5,7 @@ site:
   #start_page: sample::index.adoc
 content:
   sources:
-    - url: https://manu.v@kanilebettu.com:Virupaksha@2023@gitlab.com/merco_ecosystem/kb_playground.git
+    - url: .
       branches: feature/#95/manu
       start_path: docs
       edit_url: false
