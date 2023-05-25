@@ -21,12 +21,13 @@ deploy_to_s3:
   stage: build
   image: amazon/aws-cli
   variables:
-    ACCESS_KEY: $AWS_ACCESS_KEY_ID
-    SECRET_KEY: $AWS_SECRET_ACCESS_KEY
-    BUCKET_NAME: $AWS_S3
-    BUCKET_REGION: $AWS_DEFAULT_REGION
+    AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+    AWS_S3: $AWS_S3
+    #BUCKET_REGION: $AWS_DEFAULT_REGION
   script:
     - aws --version
-    - aws configure set aws_access_key_id ${ACCESS_KEY}
-    - aws configure set aws_secret_access_key ${SECRET_KEY}
-    - aws s3 cp ./public s3://${BUCKET_NAME}/ --region ${BUCKET_REGION} --only-show-errors
+    - aws configure set aws_access_key_id ${AWS_ACCESS_KEY_ID}
+    - aws configure set aws_secret_access_key ${AWS_SECRET_ACCESS_KEY}
+    #- aws configure set default.region $AWS_S3
+    - aws s3 cp ./public s3://${BUCKET_NAME}/ --region ap-south-1 --only-show-errors
