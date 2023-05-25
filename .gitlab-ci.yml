@@ -17,7 +17,7 @@ build:
     paths:
       - ./public
 
-deploy_to_s3:
+.deploy_to_s3:
   stage: build
   image: amazon/aws-cli
   variables:
