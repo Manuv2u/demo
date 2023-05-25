@@ -19,7 +19,7 @@ build:
 
 deploy_to_s3:
   stage: build
-  image: amazon/aws-cli:2.x
+  image: amazon/aws-cli
   variables:
     ACCESS_KEY: $AWS_ACCESS_KEY_ID
     SECRET_KEY: $AWS_SECRET_ACCESS_KEY
