@@ -1,0 +1,47 @@
+*_VIRTUAL PRIVATE CLOUD(VPC)_* +
+*_INTRODUCTION:_* +
+-> Amazon Virtual Private Cloud (Amazon VPC) enables you to launch AWS resources into a virtual network that you've defined. +
+-> A default VPC is created automatically by amazon inside each region for account. +
+
+image:https://adamraffe.com/img/2018/11/screen-shot-2018-11-07-at-17-33-49.png[] +
+
+*_IP ADDRESS:_* +
+-> IP address is a unique combination of numbers and periods such as 172.1.1.1. +
+-> It acts as an identity for the network device when it connects to the internet.  +
+
+*_CIDR:_* +
+-> CIDR (Classless Inter-Domain Routing) provides method of allocating IP addresses. +
+-> It contains base ip(ip-10.0.0.0) and subnet mask (defines how many bit can change- /16) +
+image:https://matt-rickard.ghost.io/content/images/2021/09/image-12.png[] +
+
+
+-> First step is to define the CIDR block for VPC. +
+-> Then assign portions of this CIDR block to individual subnets inside the VPC. +
+-> For eg: 10.0.0.0/16 (65,536 IP addresses) > 10.0.0.0 – 10.0.255.255 +
+image:https://howtomanagedevices.com/wp-content/uploads/2021/08/2-2.jpg[] +
+
+*_COMPONENTS OF VPC:_* +
+
+image:https://697056051-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LgLv25e2BrxRC5m6flh%2F-Ll0GwnwxwoayPQT4KF5%2F-Ll0JiraG-aeE9WpAZgN%2FScreen%20Shot%202019-07-30%20at%2010.49.22%20AM.png?alt=media&token=1445e090-2078-4058-8f9e-892d2e246f75[] +
+
+1. Subnet: A logical subdivision of larger networks. +
+     * Public Subnet - resources are exposed to the internet through Internet Gateway. +
+     * Private Subnet - resources are not exposed to the outside world. +
+2. Route Table: The set of rules used to decide where the network traffic has to be managed. It specifies the destination i.e, IP address . The target can be Internet gateway, NAT gateway, Virtual private gateway, etc. +
+3. Virtual Private Network - A service that helps to connect VPC and DC through IPSec(Internet Protocol Security) protocol for secure connection. +
+4. NAT Gateway: Network Address Translation (NAT) Gateway is used when higher bandwidth, availability with lesser management effort is required. It updates the routing table of the private subnet such that it sends the traffic to the NAT gateway. It supports only UDP, TCP, and ICMP protocols. +
+5. VPC Peering: A VPC peering is a connection between two Vpc using IPv4 private addresses. This connection helps in smooth transfer the data. +
+6. Security Groups: It consists set of firewalls rules that control the traffic of EC2 instances. A single security group can be associated with multiple instances. +
+7. Elastic IP: It is a static IP address which is a reserved public IP address that can be assigned to any Instance in a particular region and never changes. +
+8. Network Access Control Lists (NACL): It is an optional layer of security for your VPC that acts as a firewall for controlling traffic in and out of one or more subnets. It adds an additional layer of security to your VPC. +
+9. Network Interface: It’s a connection between private and public networks. +
+10. VPC Endpoints: It allows VPC to make a connection with other services of AWS without using the internet. +
+
+*_BENEFITS OF VPC:_* +
+While creating a VPC,it leads to setting up a data center in the cloud, utilizing amazing AWS infrastructure. +
+-> Highly available and scalable. +
+-> Secure and monitored network connections. +
+-> Simple set-up and use. +
+-> Customizable virtual network. +
+
+
