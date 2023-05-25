@@ -1,5 +1,5 @@
 site:
-  title: Demo Site
+  title: KBT-Documentation
   # the 404 page and sitemap files only get generated when the url property is set
   #url: https://antora.demo.com/demo/docs-site
   #start_page: sample::index.adoc
