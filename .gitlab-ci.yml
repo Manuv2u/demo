@@ -6,7 +6,7 @@ build:
   stage: build
   image: antora/antora:latest
   script:
-    - antora --fetch --pull antora-playbook.yml
+    - antora antora-playbook.yml --fetch
   artifacts:
     paths:
       - ./public
